@@ -194,7 +194,7 @@ if [[ "$response" =~ ^([yY][eE][sS]|[yY])+$ ]]; then
     startWallet
 
     echo && echo -e "${BOLD}The VPS side of your masternode has been installed. Save the following line so you can use it to complete your local wallet part of the setup${NONE}".
-    echo && echo -e "${BOLD}masternode1 ${mnip}:${COINPORT} ${mnkey} <txid for 10000 ORYX> <output index for 10000 ORYX>${NONE}"
+    echo && echo -e "${BOLD}masternode1 ${mnip}:${COINPORT} ${mnkey} TX INDEX${NONE}"
     echo && echo -e "${BOLD}Monitor synchronization status until ‘\"blocks\": <current block num>’ is synchronized with explorer
 ${COINCLI} getinfo${NONE}" && echo
 else
