@@ -10,7 +10,7 @@ BOLD='\033[1m'
 UNDERLINE='\033[4m'
 MAX=10
 
-COINBINARIESLINK=link/oryxcoin-linux-cli-1-0-0.tar.gz
+COINBINARIESLINK=https://github.com/oryxian/oryxcoin-resources/releases/download/1.0.0/oryxcoin-linux-cli-1-0-0.tar.gz
 COINBINARIESNAME=oryxcoin-linux-cli-1-0-0.tar.gz
 COINPORT=5757
 COINDAEMON=oryxcoind
@@ -97,6 +97,7 @@ installDependencies() {
     sudo apt-get install autoconf -qq -y > /dev/null 2>&1
     sudo apt-get install automake -qq -y > /dev/null 2>&1
     sudo apt-get install libdb4.8-dev libdb4.8++-dev -qq -y > /dev/null 2>&1
+    sudo apt-get install libzmq3-dev -qq -y > /dev/null 2>&1
 
     echo -e "${NONE}${GREEN}* Done${NONE}";
 }
