@@ -1,0 +1,2 @@
+# oryxcoin-resources
+Oryxcoin resources
