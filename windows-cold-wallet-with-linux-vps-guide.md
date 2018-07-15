@@ -1,4 +1,4 @@
-#Oryxcoin Masternode Cold Windows - Hot Linux Wallet Install Guide
+# Oryxcoin Masternode Cold Windows - Hot Linux Wallet Install Guide
 
 ## Requirements
 
