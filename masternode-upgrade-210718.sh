@@ -55,7 +55,7 @@ installNewWallet() {
     sudo mv $COINTX /usr/bin
 
     sleep 5
-    $COINDAEMON -daemon > /dev/null 2>&1
+    $COINDAEMON -daemon -reindex > /dev/null 2>&1
     sleep 5
 
     cd && sudo rm -rf newOryxWallet
