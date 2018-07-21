@@ -15,6 +15,6 @@ Just type `Y` to confirm the upgrade and wait a few minutes for the script to co
 
 ### What if i didn't use the `oryxcoin_masternode_wizard.sh`
 
-You will have to manually stop your masternode using `oryxcoin-cli stop` replace the `oryxcoind` `oryxcoin-cli` and `oryxcoin-tx` on your VPS and restart the wallet using `oryxcashd -daemon`.
+You will have to manually stop your masternode using `oryxcoin-cli stop` replace the `oryxcoind` `oryxcoin-cli` and `oryxcoin-tx` on your VPS and restart the wallet using `oryxcashd -daemon -reindex`.
 
 **DO NOT DELETE in any circumstance the .oryxcash core folder. The folder can stay as it is.**
