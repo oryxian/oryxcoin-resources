@@ -134,9 +134,9 @@ configureWallet() {
     echo
     echo -e "[9/${MAX}] Configuring wallet. Please wait..."
     $COINDAEMON -daemon > /dev/null 2>&1
-    sleep 5
+    sleep 10
     $COINCLI stop > /dev/null 2>&1
-    sleep 5
+    sleep 10
 
     mnip=$(curl --silent ipinfo.io/ip)
     rpcuser=`cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1`
@@ -145,12 +145,12 @@ configureWallet() {
     echo -e "rpcuser=${rpcuser}\nrpcpassword=${rpcpass}\nrpcallowedip=127.0.0.1" > ~/$COINCORE/$COINCONFIG
 
     $COINDAEMON -daemon > /dev/null 2>&1
-    sleep 5
+    sleep 10
 
     mnkey=$($COINCLI masternode genkey)
 
     $COINCLI stop > /dev/null 2>&1
-    sleep 5
+    sleep 10
 
     echo -e "rpcuser=${rpcuser}\nrpcpassword=${rpcpass}\nrpcallowedip=127.0.0.1\nmasternode=1\ndaemon=1\nbind=${mnip}:${COINPORT}\nmasternodeprivkey=${mnkey}" > ~/$COINCORE/$COINCONFIG
 
