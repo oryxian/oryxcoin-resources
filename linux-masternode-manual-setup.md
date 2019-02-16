@@ -108,8 +108,8 @@ Now we need to get the binaries from **github** and install them globally. Type 
 
 ````bash
 cd
-wget https://github.com/oryxian/oryxcoin-resources/releases/download/1.0.1/oryxcoin-linux-cli-1-0-1.tar.gz
-tar -xzf oryxcoin-linux-cli-1-0-1.tar.gz
+wget https://github.com/oryxian/oryxcoin-resources/releases/download/OryxCoin2.0.0/oryxcoin-v2-0-0-i686-linux-pc-gnu.tar.gz
+tar -xzf oryxcoin-v2-0-0-i686-linux-pc-gnu.tar.gz
 chmod 755 oryxcoind oryxcoin-cli oryxcoin-tx
 strip oryxcoind oryxcoin-cli oryxcoin-tx
 sudo mv oryxcoind oryxcoin-cli oryxcoin-tx /usr/bin
