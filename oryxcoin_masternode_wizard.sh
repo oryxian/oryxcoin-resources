@@ -10,8 +10,8 @@ BOLD='\033[1m'
 UNDERLINE='\033[4m'
 MAX=10
 
-COINBINARIESLINK=https://github.com/oryxian/oryxcoin-resources/releases/download/1.0.1/oryxcoin-linux-cli-1-0-1.tar.gz
-COINBINARIESNAME=oryxcoin-linux-cli-1-0-1.tar.gz
+COINBINARIESLINK=https://github.com/oryxian/oryxcoin-resources/releases/download/OryxCoin2.0.0/oryxcoin-v2-0-0-i686-linux-pc-gnu.tar.gz
+COINBINARIESNAME=oryxcoin-v2-0-0-i686-linux-pc-gnu.tar.gz
 COINPORT=5757
 COINDAEMON=oryxcoind
 COINCLI=oryxcoin-cli
@@ -62,25 +62,6 @@ setupSwap() {
         echo -e "vm.vfs_cache_pressure=50" | sudo tee -a /etc/sysctl.conf > /dev/null 2>&1
         echo -e "${NONE}${GREEN}* Done${NONE}";
     fi
-}
-
-installFail2Ban() {
-    echo
-    echo -e "[4/${MAX}] Installing fail2ban. Please wait..."
-    sudo apt-get -y install fail2ban > /dev/null 2>&1
-    sudo systemctl enable fail2ban > /dev/null 2>&1
-    sudo systemctl start fail2ban > /dev/null 2>&1
-    echo -e "${NONE}${GREEN}* Done${NONE}";
-}
-
-installFirewall() {
-    echo
-    echo -e "[5/${MAX}] Installing UFW. Please wait..."
-    sudo apt-get -y install ufw > /dev/null 2>&1
-    sudo ufw allow OpenSSH > /dev/null 2>&1
-    sudo ufw allow $COINPORT/tcp > /dev/null 2>&1
-    echo "y" | sudo ufw enable > /dev/null 2>&1
-    echo -e "${NONE}${GREEN}* Done${NONE}";
 }
 
 installDependencies() {
@@ -134,9 +115,9 @@ configureWallet() {
     echo
     echo -e "[9/${MAX}] Configuring wallet. Please wait..."
     $COINDAEMON -daemon > /dev/null 2>&1
-    sleep 10
+    sleep 30
     $COINCLI stop > /dev/null 2>&1
-    sleep 10
+    sleep 30
 
     mnip=$(curl --silent ipinfo.io/ip)
     rpcuser=`cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1`
@@ -145,12 +126,12 @@ configureWallet() {
     echo -e "rpcuser=${rpcuser}\nrpcpassword=${rpcpass}\nrpcallowedip=127.0.0.1" > ~/$COINCORE/$COINCONFIG
 
     $COINDAEMON -daemon > /dev/null 2>&1
-    sleep 10
+    sleep 30
 
     mnkey=$($COINCLI masternode genkey)
 
     $COINCLI stop > /dev/null 2>&1
-    sleep 10
+    sleep 30
 
     echo -e "rpcuser=${rpcuser}\nrpcpassword=${rpcpass}\nrpcallowedip=127.0.0.1\nmasternode=1\ndaemon=1\nbind=${mnip}:${COINPORT}\nmasternodeprivkey=${mnkey}" > ~/$COINCORE/$COINCONFIG
 
@@ -185,8 +166,6 @@ if [[ "$response" =~ ^([yY][eE][sS]|[yY])+$ ]]; then
     checkForUbuntuVersion
     updateAndUpgrade
     setupSwap
-    installFail2Ban
-    installFirewall
     installDependencies
     downloadWallet
     installWallet
