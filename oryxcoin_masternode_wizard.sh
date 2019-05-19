@@ -10,8 +10,9 @@ BOLD='\033[1m'
 UNDERLINE='\033[4m'
 MAX=10
 
-COINBINARIESLINK=https://github.com/oryxian/oryxcoin-resources/releases/download/v2.0.1/Linux-oryxcoin.2.0.1-linux-gnu-x64.zip
-COINBINARIESNAME=Linux-oryxcoin.2.0.1-linux-gnu-x64.zip
+COINBINARIESLINK=https://github.com/oryxian/oryxcoin-resources/releases/download/v2.0.1/oryxcoin.2.0.1-linux-gnu-x64.tar.gz
+COINBINARIESNAME=oryxcoin.2.0.1-linux-gnu-x64.tar.gz
+
 COINPORT=5757
 COINDAEMON=oryxcoind
 COINCLI=oryxcoin-cli
