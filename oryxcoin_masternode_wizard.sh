@@ -20,7 +20,7 @@ COINTX=oryxcoin-tx
 COINCORE=.oryxcoin
 COINCONFIG=oryxcoin.conf
 
-checkForUbuntuVersion() {
+#checkForUbuntuVersion() {
    echo "[1/${MAX}] Checking Ubuntu version..."
     if [[ `cat /etc/issue.net`  == *16.04* ]]; then
         echo -e "${GREEN}* You are running `cat /etc/issue.net` . Setup will continue.${NONE}";
