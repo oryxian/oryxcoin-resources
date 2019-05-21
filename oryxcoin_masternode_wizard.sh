@@ -20,7 +20,7 @@ COINTX=oryxcoin-tx
 COINCORE=.oryxcoin
 COINCONFIG=oryxcoin.conf
 
-#checkForUbuntuVersion() {
+checkForUbuntuVersion() {
    echo "[1/${MAX}] Checking Ubuntu version..."
     if [[ `cat /etc/issue.net`  == *16.04* ]]; then
         echo -e "${GREEN}* You are running `cat /etc/issue.net` . Setup will continue.${NONE}";
@@ -164,7 +164,7 @@ read -p "This script will setup your OryxCoin Masternode. Do you wish to continu
 echo -e "${NONE}"
 
 if [[ "$response" =~ ^([yY][eE][sS]|[yY])+$ ]]; then
-    checkForUbuntuVersion
+    #checkForUbuntuVersion
     updateAndUpgrade
     setupSwap
     installDependencies
